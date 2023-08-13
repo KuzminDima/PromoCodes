@@ -18,7 +18,7 @@ class PromoCodesGeneratorHandler
 
     public function generate(ConsoleRequest $request, DatabaseManager $databaseManager): ResponseInterface
     {
-        $size = (int) $request->size ?? 500000;
+        $size = (int) $request->size ?: 500000;
 
         /** @var PDO $connection */
         $connection = $databaseManager->connection('mysql');

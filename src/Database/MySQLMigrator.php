@@ -31,7 +31,7 @@ class MySQLMigrator
 
     protected function createDatabase(PDO $connection, string $databaseName): void
     {
-        $connection->query('CREATE DATABASE IF NOT EXISTS `' . $databaseName . '`');
+        $connection->query('CREATE DATABASE IF NOT EXISTS `' . $databaseName . '`  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;');
         $connection->query('use `' . $databaseName . '`');
     }
 
