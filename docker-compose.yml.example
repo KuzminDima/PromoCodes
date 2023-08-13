@@ -10,24 +10,14 @@ services:
     working_dir: /var/www/promocodes
     volumes:
       - ./:/var/www/promocodes:rw
+      - ./docker/app/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     depends_on:
       - mysql
     environment:
-      XDEBUG_CONFIG: client_host=${XDEBUG_CLIENT_HOST}
       PHP_IDE_CONFIG: $PHP_IDE_CONFIG
-    networks:
-      - promocodes
-
-  web:
-    build:
-      context: ./
-      dockerfile: docker/web/Dockerfile
-    image: promocodes-web
-    working_dir: /var/www
-    volumes:
-      - ./:/var/www/promocodes:rw
+      XDEBUG_CONFIG: $XDEBUG_CONFIG
     ports:
-      - '127.0.0.1:${APP_PORT:-8080}:80'
+      - "127.0.0.1:${APP_PORT:-8080}:80"
     networks:
       - promocodes
 

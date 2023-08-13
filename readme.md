@@ -5,7 +5,7 @@
 4. Запускаем проект командой `docker-compose --env-file docker/.env up --build`
 5. Запускаем установку пактов командой ` docker-compose exec app composer install`
 6. Запускаем команду создание базы данных и таблиц `docker-compose exec app php console db:migrate`
-7. Проект с настройками по умолчанию становится доступен по ссылке - http://localhost:8080/
+7. Проект с настройками по умолчанию становится доступен по ссылке - http://localhost:8082/
 
 ## Команда для генерации промокодов:
 `docker-compose exec app php console db:promo_codes:generate --size=500000`
